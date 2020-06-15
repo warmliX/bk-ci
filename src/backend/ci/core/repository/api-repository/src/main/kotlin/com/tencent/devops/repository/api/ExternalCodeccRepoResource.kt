@@ -120,7 +120,7 @@ interface ExternalCodeccRepoResource {
 
     @ApiOperation("获取GitLab仓库单个文件内容")
     @GET
-    @Path("")
+    @Path("/getGitLabFileContentCommon")
     fun getGitlabFileContentCommon(
         @ApiParam(value = "代码库url")
         @QueryParam("repoUrl")
@@ -134,9 +134,6 @@ interface ExternalCodeccRepoResource {
         @ApiParam(value = "调用api的token")
         @QueryParam("token")
         token: String,
-        @ApiParam(value = "代码块认证方式，默认http")
-        @QueryParam("authType")
-        authType: RepoAuthType? = RepoAuthType.HTTP,
         @ApiParam(value = "子模块项目名称")
         @QueryParam("subModule")
         subModule: String? = null

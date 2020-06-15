@@ -54,7 +54,8 @@ class CommonRepoFileService @Autowired constructor(
 
     fun getGitLabFileContent(repoUrl: String, subModule: String?, filePath: String, accessToken: String, ref: String?): String {
         val projectName = if (subModule.isNullOrBlank()) GitUtils.getProjectName(repoUrl) else subModule
-        return gitService.getGitlabFileContent(repoUrl = repoUrl,
+        return gitService.getGitlabFileContent(
+                repoUrl = repoUrl,
                 repoName = projectName!!,
                 filePath = filePath.removePrefix("/"),
                 ref = accessToken,
